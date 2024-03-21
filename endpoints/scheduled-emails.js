@@ -1,5 +1,5 @@
 const { getScheduledEmails } = require('../scheduledEmailsList');
-const log = require('./log');
+const log = require('../log');
 
 function getScheduledEmailsHandler(req, res) {
     try {

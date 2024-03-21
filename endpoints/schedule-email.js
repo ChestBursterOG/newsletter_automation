@@ -4,7 +4,7 @@ const { pobierzListeOdbiorcow } = require('../downloadReceiverLists');
 const { transporter } = require('../nodemailerTransporter');
 const { addScheduledEmail, removeScheduledEmail } = require('../scheduledEmailsList');
 const { getDate, getTime } = require('../getTime');
-const log = require('./log');
+const log = require('../log');
 
 async function scheduleEmail(req, res) {
     log('Planowanie wiadomości...');

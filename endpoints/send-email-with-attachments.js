@@ -2,7 +2,7 @@ const multer = require('multer');
 const { upload } = require('../multerStorage');
 const { pobierzListeOdbiorcow } = require('../downloadReceiverLists');
 const { transporter } = require('../nodemailerTransporter');
-const log = require('./log');
+const log = require('../log');
 
 function sendEmailWithAttachments(req, res) {
     log('Wysyłanie wiadomości z załącznikami...');

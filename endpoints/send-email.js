@@ -1,7 +1,7 @@
 const { v4: uuidv4 } = require('uuid');
 const { pobierzListeOdbiorcow } = require('../downloadReceiverLists');
 const { transporter } = require('../nodemailerTransporter');
-const log = require('./log');
+const log = require('../log');
 
 async function sendEmail(req, res) {
     try {

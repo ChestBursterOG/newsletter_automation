@@ -4,8 +4,9 @@ const { transporter } = require('../nodemailerTransporter');
 const log = require('../log');
 
 async function sendEmail(req, res) {
+    log('Wysyłanie wiadomości...');
     try {
-        log('Wysyłanie wiadomości...');
+        
         const { subject, html } = req.body;
 
         const id = uuidv4();

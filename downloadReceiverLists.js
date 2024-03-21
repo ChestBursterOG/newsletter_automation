@@ -3,12 +3,12 @@ const { table } = require('./airtableData');
 
 async function pobierzListeOdbiorcow() {
     try {
-        const records = await table.select({ fields: ['Email'] }).all();
         log('Pobieranie adresów z bazy danych');
+        const records = await table.select({ fields: ['Email'] }).all();
         log('Liczba odbiorców: ' + records.length);
         return records.map(record => record.get('Email'));
     } catch (error) {
-        log('Wystąpił błąd podczas pobierania listy odbiorców z Airtable:', error);
+        log('Wystąpił błąd podczas pobierania listy odbiorców z Airtable:' + error);
         return [];
     }
 }

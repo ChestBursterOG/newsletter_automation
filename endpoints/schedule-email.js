@@ -40,13 +40,13 @@ async function scheduleEmail(req, res) {
                     }
                 }
                 removeScheduledEmail(id);
-                log('Wiadomość została zaplanowana i wysłana.');
+                log('Wiadomości została wysłane.');
             } catch (error) {
                 log('Wystąpił błąd podczas wysyłania wiadomości zaplanowanej:' + error);
             }
         }, {
             scheduled: true,
-            timezone: 'Europe/Paris' 
+            timezone: 'Europe/Warsaw' 
         });
 
 

@@ -63,7 +63,7 @@ function scheduleEmailWithAttachments(req, res) {
                 }
             }, {
                 scheduled: true,
-                timezone: 'Europe/Paris'
+                timezone: 'Europe/Warsaw'
             });
     
             res.status(200).json({ message: 'Wiadomość została zaplanowana do wysłania.' });

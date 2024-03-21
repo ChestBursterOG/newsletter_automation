@@ -26,18 +26,18 @@ async function sendEmail(req, res) {
                 log('E-mail został wysłany do ' + recipient + ': ' + info.response);
                 
             } catch (error) {
-                log('Wystąpił błąd podczas wysyłania wiadomości do ' + recipient + ':', error);
+                log('Wystąpił błąd podczas wysyłania wiadomości do ' + recipient + ':' + error);
                 continue;
             }
         }
 
-        log('Wiadomość została zaplanowana i wysłana.');
+        log('Wiadomośći zostały wysłane');
 
         res.status(200).json({ message: 'Wiadomość została zaplanowana do wysłania.' });
         
     } catch (error) {
-        log('Wystąpił błąd podczas planowania wysłania wiadomości:', error);
-        res.status(500).json({ message: 'Wystąpił błąd podczas planowania wysłania wiadomości.' });
+        log('Wystąpił błąd podczas planowania wysłania wiadomości:' + error);
+        res.status(500).json({ message: 'Wystąpił błąd podczaswysłania wiadomości.' });
     }
 }
 

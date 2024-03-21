@@ -8,10 +8,10 @@ function sendEmailWithAttachments(req, res) {
     log('Wysyłanie wiadomości z załącznikami...');
     upload.any('files')(req, res, async (err) => {
         if (err instanceof multer.MulterError) {
-            log('Multer error:', err);
+            log('Multer error:' + err);
             return res.status(400).send('Multer error');
         } else if (err) {
-            log('Other error:', err);
+            log('Other error:' + err);
             return res.status(500).send('Other error');
         }
     
@@ -36,11 +36,11 @@ function sendEmailWithAttachments(req, res) {
                 const info = await transporter.sendMail(mailOptions);
                 log('E-mail został wysłany do ' + recipient + ': ' + info.response);
             } catch (error) {
-                log('Wystąpił błąd podczas wysyłania e-maila do ' + recipient + ':', error);
+                log('Wystąpił błąd podczas wysyłania e-maila do ' + recipient + ':' + error);
                 continue;
             }
         }
-    
+        log('Wiadomości zostały wysłane');
         res.status(200).json({ message: 'E-mail został pomyślnie wysłany z załącznikami.' });
     });
 }

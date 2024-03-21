@@ -52,25 +52,25 @@ function scheduleEmailWithAttachments(req, res) {
                             log('E-mail został wysłany do ' + recipient + ': ' + info.response);
                             
                         } catch (error) {
-                            log('Wystąpił błąd podczas wysyłania wiadomości do ' + recipient + ':', error);
+                            log('Wystąpił błąd podczas wysyłania wiadomości do ' + recipient + ':' +  error);
                             continue;
                         }
                     }
                     removeScheduledEmail(id);
                     log('Wiadomość została zaplanowana i wysłana.');
                 } catch (error) {
-                    log('Wystąpił błąd podczas wysyłania wiadomości zaplanowanej:', error);
+                    log('Wystąpił błąd podczas wysyłania wiadomości zaplanowanej:' + error);
                 }
             }, {
                 scheduled: true,
-                timezone: 'Europe/Warsaw'
+                timezone: 'Europe/Paris'
             });
     
             res.status(200).json({ message: 'Wiadomość została zaplanowana do wysłania.' });
             await addScheduledEmail({ id: id, subject: subject, date: date, time: time });
             
         } catch (error) {
-            log('Wystąpił błąd podczas planowania wysłania wiadomości:', error);
+            log('Wystąpił błąd podczas planowania wysłania wiadomości:' + error);
             res.status(500).json({ message: 'Wystąpił błąd podczas planowania wysłania wiadomości.' });
         }
     });

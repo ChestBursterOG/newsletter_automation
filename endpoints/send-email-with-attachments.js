@@ -22,7 +22,7 @@ function sendEmailWithAttachments(req, res) {
     
         for (const recipient of recipients) {
             const mailOptions = {
-                from: 'fundacja@polskiecentrumsi.pl',
+                from: process.env.EMAIL_ACCOUNT_USER,
                 to: recipient,
                 subject,
                 html,

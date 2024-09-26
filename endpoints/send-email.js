@@ -3,6 +3,10 @@ const { pobierzListeOdbiorcow } = require('../downloadReceiverLists');
 const { transporter } = require('../nodemailerTransporter');
 const log = require('../log');
 
+function delay(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+}
+
 async function sendEmail(req, res) {
     log('Wysyłanie wiadomości...');
     try {
@@ -24,9 +28,14 @@ async function sendEmail(req, res) {
 
                 const info = await transporter.sendMail(mailOptions);
                 log('E-mail został wysłany do ' + recipient + ': ' + info.response);
+
+                await delay(10000);
                 
             } catch (error) {
                 log('Wystąpił błąd podczas wysyłania wiadomości do ' + recipient + ':' + error);
+
+                await delay(10000);
+
                 continue;
             }
         }
